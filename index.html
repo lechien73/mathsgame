@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
+    <title>Maths Game</title>
+    <style>
+        body {
+            height: 100vh;
+            background: url('./images/mathsbg.jpg');
+            background-size: cover;
+        }
+        .buttonbar {
+            text-align: center;
+        }
+        .buttons {
+            height: 120px;
+            padding-top: 40px;
+        }
+        .button1 {
+            background-color: red;
+        }
+        .button2 {
+            background-color: blue;
+        }
+        .button3 {
+            background-color: green;
+        }
+        #difficultyForm {
+            text-align: center;
+            font-size: 2rem;
+        }
+        .mainheading {
+            color: lemonchiffon;
+            font-size: 3em;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 2px 2px 5px grey;
+        }
+        #myForm {
+            text-align: center;
+            font-size: 2rem;
+        }
+        #question {
+            font-size: 2.5rem;
+            font-weight: bolder;
+            color: red;
+            text-align: center;
+        }
+        .p-score {
+            font-size: 2.5rem;
+            text-align: center;
+        }
+        .questionarea {
+            background-color: rgba(255,255,255,0.7);
+            padding: 20px;
+        }
+        
+        .selectbutton {
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            height: 50px;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <p class="mainheading">Maths Game Project</p>
+            </div>
+        </div>
+        <hr />
+        <div class="row buttonbar">
+            <div class="col-md-4 buttons button1">
+            <button class="selectbutton" onclick="setAdditionGame();">Addition Game</button>
+            </div>
+            <div class="col-md-4 buttons button2">
+            <button class="selectbutton" onclick="setSubtractionGame();">Subtraction Game</button>
+            </div>
+            <div class="col-md-4 buttons button3">
+            <button class="selectbutton" onclick="setMultiplicationGame();">Multiplication Game</button>
+            </div>
+        </div>
+        <hr />
+        <div class="row  questionarea">
+            <div class="col-md-6">
+                <p id="question"></p>
+            </div>
+            <div class="col-md-6">
+                <p class="p-score">Your score is: <span id="score">0</span></p>
+            </div>
+        </div>
+        <div class="row questionarea">
+            <div class="col-md-12">
+                <p id="resultpar" class="hidden"></p>
+                <form id="myForm" name="answerForm" onsubmit="checkAnswer(); return false;" data-gametype="addition" action="#">
+                    Enter answer: <input type="number" name="answer">
+                    <input type="hidden" name="rightAnswer">
+                    <input type="submit" value="submit">
+                </form>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-12 questionarea">
+                <form name="difficulty" id="difficultyForm">
+                    <input type="radio" name="level" value="20" onclick="refreshDifficulty();"> Easy | 
+                    <input type="radio" name="level" value="50" checked onclick="refreshDifficulty();"> Normal | 
+                    <input type="radio" name="level" value="100" onclick="refreshDifficulty();"> Difficult
+                </form>
+            </div>
+        </div>
+        <hr />
+    </div>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
